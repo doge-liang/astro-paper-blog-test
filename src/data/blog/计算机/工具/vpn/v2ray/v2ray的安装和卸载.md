@@ -1,0 +1,35 @@
+---
+title: v2ray的安装和卸载
+description: 关于v2ray的安装和卸载的详细笔记和总结
+tags: []
+categories:
+    - article
+    - 计算机
+    - 工具
+    - vpn
+    - v2ray
+pubDatetime: 2021-03-25 00:00:00
+---
+
+## v2ray 的安装和卸载
+
+安裝和更新 V2Ray
+
+```bash
+# 安裝執行檔和 .dat 資料檔
+bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+```
+
+安裝最新發行的 geoip.dat 和 geosite.dat
+
+```bash
+# 只更新 .dat 資料檔
+bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+```
+
+移除 V2Ray
+
+```bash
+bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --remove
+```
+

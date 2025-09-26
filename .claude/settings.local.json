@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python fix_frontmatter.py)",
+      "Bash(npm run dev)",
+      "Bash(find src/data/blog -name \"*.md\" -exec awk 'FNR<=10 {if(/^---$/){found=1; exit}} FNR==10 && !found {print FILENAME; exit}' {} ;)",
+      "Bash(find src/data/blog -name \"*.md\" -exec sh -c 'head -5 \"\"$1\"\" | grep -q \"\"^---$\"\" || echo \"\"$1\"\"' _ {} ;)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
