@@ -3,10 +3,10 @@ title: Golang 依赖管理-go mod
 description: 关于Golang 依赖管理-go mod的详细笔记和总结
 tags: []
 categories:
-    - article
-    - 计算机
-    - 程序设计语言
-    - Golang
+  - article
+  - 计算机
+  - 程序设计语言
+  - Golang
 pubDatetime: 2021-04-10 00:00:00
 ---
 
@@ -18,9 +18,9 @@ Go 语言在 1.11 版本之后发布了 `go module` 是目前最新的依赖管�
 通过设置 `GO111MODULE` 的值可以开启或禁用 `go module` 工具。
 `GO111MUDULE` 支持 `on` `auto` `off` 三种模式：
 
--   `GO111MODULE=on` 编译时会忽略 GOPATH 和 vendor 文件夹，只根据 `go.mod` 加载依赖；
--   `GO111MODULE=auto` 当项目在 `$GOPATH/src` 外，且项目根目录下有 `go.mod` 文件时，会开启模块支持；
--   `GO111MODULE=off` 禁用 `go module` 支持，编译时会从 `$GOPATH` 和 `vendor` 下寻找依赖；
+- `GO111MODULE=on` 编译时会忽略 GOPATH 和 vendor 文件夹，只根据 `go.mod` 加载依赖；
+- `GO111MODULE=auto` 当项目在 `$GOPATH/src` 外，且项目根目录下有 `go.mod` 文件时，会开启模块支持；
+- `GO111MODULE=off` 禁用 `go module` 支持，编译时会从 `$GOPATH` 和 `vendor` 下寻找依赖；
 
 ### Go PROXY
 
@@ -47,7 +47,7 @@ go mod why              解释为什么需要依赖
 
 `go.mod` 文件记录了项目所有的依赖信息，其结构大致如下：
 
-```code
+```plaintext
 module github.com/Q1mi/studygo/blogger
 
 go 1.12
@@ -64,15 +64,15 @@ require (
 
 其中，
 
--   `module` 定义了包名
--   `require` 定义依赖以及版本
--   `indirect` 表示间接引用
+- `module` 定义了包名
+- `require` 定义依赖以及版本
+- `indirect` 表示间接引用
 
 #### 语义化的版本号
 
 比如 `go get foo@v1.2.3` ，也可以跟 git 的 tag 或者 branch ，比如 `go get foo@master` ，当然也可以跟 git 提交 hashcode 比如 `go get foo@3702bed2` 。关于依赖的版本支持以下几种格式：
 
-```code
+```plaintext
 gopkg.in/tomb.v1 v1.0.1-20141024135613-dd632973f1e7
 gopkg.in/vmihailenco/msgpack.v2 v2.9.1
 gopkg.in/yaml.v2 <= v2.2.1
@@ -84,7 +84,7 @@ latest
 
 在国内访问 golang.org/xxx 的包都要翻墙，可以在 `go.mod` 中使用 `replace` 语法将 `require` 的包替换成 github 或者 gitee 上相应的库。
 
-```code
+```plaintext
 replace (
     golang.org/x/crypto v0.0.0-20180820150726-614d502a4dac => github.com/golang/crypto v0.0.0-20180820150726-614d502a4dac
     golang.org/x/net v0.0.0-20180821023952-922f4815f713 => github.com/golang/net v0.0.0-20180826012351-8a410e7b638d
@@ -103,4 +103,3 @@ replace (
 #### go mod edit
 
 `go mod edit -fmt` 帮助我们格式化 `go.mod` 文件，使文件不会因为手动修改而太乱。
-

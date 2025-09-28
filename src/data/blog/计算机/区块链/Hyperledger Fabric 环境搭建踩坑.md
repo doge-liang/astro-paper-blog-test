@@ -3,9 +3,9 @@ title: Hyperledger Fabric 环境搭建踩坑
 description: 关于Hyperledger Fabric 环境搭建踩坑的详细笔记和总结
 tags: []
 categories:
-    - article
-    - 计算机
-    - 区块链
+  - article
+  - 计算机
+  - 区块链
 pubDatetime: 2021-03-27 00:00:00
 ---
 
@@ -15,7 +15,7 @@ pubDatetime: 2021-03-27 00:00:00
 
 在跑 `. ./init.sh` 脚本的时候，运行到第五步，创建通道并将节点加入通道的时候，出现了如下错误：
 
-```code
+```plaintext
 5.Create & Join Channel
 ######## - (COMMON) setup variables - ########
 ~/workspace/channel-artifacts ~/workspace

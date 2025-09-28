@@ -24,21 +24,21 @@ Vue 的页面是由一个个组件嵌套、拼装组成的。每个组件相当�
 
 组件需要注册之后才能使用，有本低注册和全局注册两种方式：
 
-```JavaScript
+```javascript
 // 本地注册
-import componentA from 'componentA.vue'
+import componentA from "componentA.vue";
 
 export default {
   components: {
-    componentA: conponentA
-  }
-}
+    componentA: conponentA,
+  },
+};
 
 // 全局注册，在 main.js 内
-const App = Vue.createApp()
-app.component('component-a', {
+const App = Vue.createApp();
+app.component("component-a", {
   // options
-})
+});
 ```
 
 ### 组件间通信
@@ -52,30 +52,30 @@ app.component('component-a', {
 - 通过数组定义，接收类型只能是字符串；
 - 通过对象的方式定义可以指定具体类型；
 
-```JavaScript
+```javascript
 // child-component
 export default {
-  props: ['title'],
+  props: ["title"],
   setup(props, context) {
-    console.log(props.title)
-  }
-}
+    console.log(props.title);
+  },
+};
 ```
 
-```JavaScript
+```javascript
 // child-component
 export default {
   props: {
     title: String,
     pager: Object,
-    today: Number
-  }
-}
+    today: Number,
+  },
+};
 ```
 
 父组件传值：
 
-```JavaScript
+```javascript
 // parent-component
 <template>
   <child-component title="create"></child-component>

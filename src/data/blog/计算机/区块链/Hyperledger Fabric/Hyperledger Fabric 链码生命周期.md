@@ -3,10 +3,10 @@ title: Hyperledger Fabric 链码生命周期
 description: 关于Hyperledger Fabric 链码生命周期的详细笔记和总结
 tags: []
 categories:
-    - article
-    - 计算机
-    - 区块链
-    - Hyperledger Fabric
+  - article
+  - 计算机
+  - 区块链
+  - Hyperledger Fabric
 pubDatetime: 2021-04-10 00:00:00
 ---
 
@@ -22,10 +22,10 @@ pubDatetime: 2021-04-10 00:00:00
 
 Fabric 链码的生命周期指的是，多个组织在通道上使用该链码之前，对如何处理链码达成一致意见的过程。一个网络运维人员需要使用 Fabric lifecycle 来完成以下的任务：
 
--   [安装并定义一个链码](https://hyperledger-fabric.readthedocs.io/en/release-2.3/chaincode_lifecycle.html#install-and-define-a-chaincode)
--   [升级一个链码](https://hyperledger-fabric.readthedocs.io/en/release-2.3/chaincode_lifecycle.html#upgrade-a-chaincode)
--   [部署方案](https://hyperledger-fabric.readthedocs.io/en/release-2.3/chaincode_lifecycle.html#deployment-scenarios)
--   [迁移到新的链码生命周期](https://hyperledger-fabric.readthedocs.io/en/release-2.3/chaincode_lifecycle.html#migrate-to-the-new-fabric-lifecycle)
+- [安装并定义一个链码](https://hyperledger-fabric.readthedocs.io/en/release-2.3/chaincode_lifecycle.html#install-and-define-a-chaincode)
+- [升级一个链码](https://hyperledger-fabric.readthedocs.io/en/release-2.3/chaincode_lifecycle.html#upgrade-a-chaincode)
+- [部署方案](https://hyperledger-fabric.readthedocs.io/en/release-2.3/chaincode_lifecycle.html#deployment-scenarios)
+- [迁移到新的链码生命周期](https://hyperledger-fabric.readthedocs.io/en/release-2.3/chaincode_lifecycle.html#migrate-to-the-new-fabric-lifecycle)
 
 你可以通过新建一个通道，并将通道配置中的 `Capabilities` 设置为 `V2_0` 来使用 `fabric chaincode lifecycle` 命令。如果 `V2_0` 的 `Capabilities` 被打开，那么旧的链码生命周期将无法使用。然而，你仍然可以用以前的链码生命周期模型来调用已经安装了的链码。[链码生命周期迁移教程](https://hyperledger-fabric.readthedocs.io/en/release-2.3/enable_cc_lifecycle.html)。
 
@@ -46,15 +46,15 @@ Fabric 链码的生命周期指的是，多个组织在通道上使用该链码�
 
 如果你使用第三方工具打包链码，则生成的文件需要采用以下格式。 Fabric peer 二进制文件和 Fabric SDKs 将自动创建此格式的文件。
 
--   链码包需要打包成 `tar` 文件，以 `.tar.gz` 结尾；
--   链码包需要包含两个文件（不是目录）：元数据文件 `metadata.json` 和包含链码文件的 `*.tar.gz` ；
--   `metadata.json` 文件包含了链码**使用的语言**、**代码路径**和链码包**标签**。示例如下：
+- 链码包需要打包成 `tar` 文件，以 `.tar.gz` 结尾；
+- 链码包需要包含两个文件（不是目录）：元数据文件 `metadata.json` 和包含链码文件的 `*.tar.gz` ；
+- `metadata.json` 文件包含了链码**使用的语言**、**代码路径**和链码包**标签**。示例如下：
 
 ```json
 {
-    "Path": "fabric-samples/asset-transfer-basic/chaincode-go",
-    "Type": "golang",
-    "Label": "basicv1"
+  "Path": "fabric-samples/asset-transfer-basic/chaincode-go",
+  "Type": "golang",
+  "Label": "basicv1"
 }
 ```
 
@@ -89,7 +89,7 @@ peer lifecycle chaincode queryinstalled --output json | jq
 
 如果输出如下，则链码安装成功，我们可以看到这个包标识符一般是由 `链码名_版本号:哈希码` 构成的
 
-```code
+```plaintext
 PACKAGE_ID=mycc_v1.0:03d34a995a0e6b5285746a7662ff42c3ca88145f3a265a5a4580c4c7c5e7e549
 ```
 
@@ -138,13 +138,13 @@ peer lifecycle chaincode approveformyorg \
 
 链码受链码定义的约束。当通道成员批准链码定义时，这个批准的过程，就像组织对链码参数的投票。这些经组织批准定义，可以让通道成员在使用链码之前就达成一致。链码定义包括以下参数，这些参数需要整个组织保持一致：
 
--   `Name` ：应用程序在调用链码时将使用的名称。
--   `Version` ：与给定链码包关联的版本编号或值。如果你升级了链码二进制文件，你还需要更改链码版本。
--   `Sequence` ：已定义链码的次数。此值是一个整数，用于跟踪链码升级。例如，当你首次安装和批准链码定义时，序列号为 1。下次升级链码时，序列号将增加为 2。
--   `Endorsement Policy` ：哪些组织需要执行和验证交易输出。背书策略可以用字符串传递给 CLI ，也可以在通道配置中引用策略。默认情况下，背书策略被设置为 `Channel/Application/Endorsement` ，该背书策略默认要求该通道中的大多数组织为交易背书。
--   `Collection Configuration` ：与你的链码关联的私有数据收集定义文件的路径。有关私有数据收集的更多信息，请参阅[私有数据架构手册](https://hyperledger-fabric.readthedocs.io/en/release-2.3/private-data-arch.html)。
--   `ESCC/VSCC Plugins` ：此链码将使用的自定义背书或验证插件的名称。
--   `Initialization` ：如果你使用 Fabric 链码 Shim API 提供的低级 APIs ，则你的链码需要包含用于初始化链码的 `Init` 函数。链码接口需要此函数，但不一定需要由你的应用程序调用。当你批准链码定义时，你可以指定在 invoke 之前是否必须调用 `Init` 。如果你指定需要 `Init` ， Fabric 将确保在链码中的任何其他函数之前调用 `Init` 函数，并且仅调用一次。执行 `Init` 函数的请求允许你实现在初始化链码时运行的逻辑，例如设置某些初始状态。每次链码版本更新时，你都需要调用 `Init` 来初始化链码，假设版本号增加的链码定义表示需要 `Init` 。
+- `Name` ：应用程序在调用链码时将使用的名称。
+- `Version` ：与给定链码包关联的版本编号或值。如果你升级了链码二进制文件，你还需要更改链码版本。
+- `Sequence` ：已定义链码的次数。此值是一个整数，用于跟踪链码升级。例如，当你首次安装和批准链码定义时，序列号为 1。下次升级链码时，序列号将增加为 2。
+- `Endorsement Policy` ：哪些组织需要执行和验证交易输出。背书策略可以用字符串传递给 CLI ，也可以在通道配置中引用策略。默认情况下，背书策略被设置为 `Channel/Application/Endorsement` ，该背书策略默认要求该通道中的大多数组织为交易背书。
+- `Collection Configuration` ：与你的链码关联的私有数据收集定义文件的路径。有关私有数据收集的更多信息，请参阅[私有数据架构手册](https://hyperledger-fabric.readthedocs.io/en/release-2.3/private-data-arch.html)。
+- `ESCC/VSCC Plugins` ：此链码将使用的自定义背书或验证插件的名称。
+- `Initialization` ：如果你使用 Fabric 链码 Shim API 提供的低级 APIs ，则你的链码需要包含用于初始化链码的 `Init` 函数。链码接口需要此函数，但不一定需要由你的应用程序调用。当你批准链码定义时，你可以指定在 invoke 之前是否必须调用 `Init` 。如果你指定需要 `Init` ， Fabric 将确保在链码中的任何其他函数之前调用 `Init` 函数，并且仅调用一次。执行 `Init` 函数的请求允许你实现在初始化链码时运行的逻辑，例如设置某些初始状态。每次链码版本更新时，你都需要调用 `Init` 来初始化链码，假设版本号增加的链码定义表示需要 `Init` 。
 
 如果你正在使用 Fabric Peer CLI，你可以在批准并提交链码定义时使用 `--init-required` 的标记，以表示必须调用 `Init` 函数来初始化新的链码版本。要使用 Fabric peer CLI 调用 `Init` ，请使用 `peer chaincode invoke` 命令并传入 `--isInit` 标志。
 
@@ -253,30 +253,30 @@ _一旦 MYCC 链码在通道上定义，Org1 和 Org2 能开始使用链码。�
 1. 重新打包链码：仅在升级链码二进制文件时才需要完成此步骤。
    ![picture 5](../../../../../assets/images/3f64011d821ef49bb71bf6a81063b7662f32d21df61293ea81e15760cd869694.png)
 
-    _Org1 和 Org2 升级链码二进制文件并重新打包链码。两家公司使用不同的链码包标签。_
+   _Org1 和 Org2 升级链码二进制文件并重新打包链码。两家公司使用不同的链码包标签。_
 
 2. 在 Peer 上再次安装新的链码软件包：如果要升级链码二进制文件，则仅需要完成此步骤。安装新的链码软件包将生成一个程序包标识符 ，你需要将其传递给新的链码定义。你还需要更改链码版本，生命周期流程将使用它来追踪链码二进制文件，判断是否已升级。
    ![picture 6](../../../../../assets/images/af2b16ca63944a3cc441c6541065f26696cbfc0f650306005a2750d4611acaf6.png)
 
-    _Org1 和 Org2 在其 Peer 节点上安装新软件包。安装将创建一个新的链码包标识符。_
+   _Org1 和 Org2 在其 Peer 节点上安装新软件包。安装将创建一个新的链码包标识符。_
 
 3. 批准新的链码定义：如果要升级链码二进制文件，则需要更新链码定义中的链码版本和程序包标识符。你也可以更新你的链码背书策略，而不必重新打包链码二进制文件。通道成员只需要批准新策略的定义。新定义需要将定义中的序列变量加 1。
    ![picture 7](../../../../../assets/images/77a875649c1a4477dadaca64c2761d7d1ee5c57ae8ec7e336149fde380820587.png)
 
-    _Org1 和 Org2 的组织管理员为各自的组织批准新的链码定义。新定义引用了新的链码包标识符并更改了链码版本。由于这是链码的第一次更新，因此序列从 1 递增到 2 。_
+   _Org1 和 Org2 的组织管理员为各自的组织批准新的链码定义。新定义引用了新的链码包标识符并更改了链码版本。由于这是链码的第一次更新，因此序列从 1 递增到 2 。_
 
 4. 将定义提交给通道：当足够数量的通道成员批准了新的链码定义时，一个组织可以提交新定义以将链码定义升级到通道。作为生命周期过程的一部分，没有单独的升级命令。
    ![picture 8](../../../../../assets/images/f898ab88ed67fafd96f465837b0c60be5d6eb856d6fad376c122b24ef3c37b87.png)
 
-    _来自 Org1 或 Org2 的组织管理员将新的链码定义提交到通道。_
+   _来自 Org1 或 Org2 的组织管理员将新的链码定义提交到通道。_
 
-    提交链码定义后，将使用升级的链码二进制文件中的代码启动新的链码容器。如果在链码定义中请求执行 `Init` 函数，则需要在成功提交新定义后再次调用 `Init` 函数来始化升级的链码。如果在不更改链码版本的情况下更新了链码定义，则链码容器将保持不变，并且不需要调用 `Init` 函数。
+   提交链码定义后，将使用升级的链码二进制文件中的代码启动新的链码容器。如果在链码定义中请求执行 `Init` 函数，则需要在成功提交新定义后再次调用 `Init` 函数来始化升级的链码。如果在不更改链码版本的情况下更新了链码定义，则链码容器将保持不变，并且不需要调用 `Init` 函数。
 
-    ![picture 9](../../../../../assets/images/4864a91eb97ce0828f7a40f9ca1a066ed733f7a033a0a0e95616690d72c09820.png)
+   ![picture 9](../../../../../assets/images/4864a91eb97ce0828f7a40f9ca1a066ed733f7a033a0a0e95616690d72c09820.png)
 
-    _将新定义提交给通道后，每个 Peer 将自动启动新的链码容器。_
+   _将新定义提交给通道后，每个 Peer 将自动启动新的链码容器。_
 
-    Fabric 链码生命周期使用链码定义中的 **sequence** 来跟踪升级。所有通道成员都需要将序列号加 1 ，并批准新的定义以升级链码。版本参数用于追踪链码二进制文件，仅在升级链码二进制文件时才需要更改。
+   Fabric 链码生命周期使用链码定义中的 **sequence** 来跟踪升级。所有通道成员都需要将序列号加 1 ，并批准新的定义以升级链码。版本参数用于追踪链码二进制文件，仅在升级链码二进制文件时才需要更改。
 
 ### 部署场景
 
@@ -363,4 +363,3 @@ Org1 和 Org2 使用 MYCC_1 链码包来批准和提交两个不同的链码定�
 #### 更多信息
 
 你可以观看[视频](https://youtu.be/XvEMDScFU2M)，以了解有关新 Fabric 链码生命周期的动机及其实现方式的更多信息。
-

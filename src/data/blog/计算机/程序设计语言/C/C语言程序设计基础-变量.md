@@ -41,7 +41,7 @@ C 程序的变量都必须声明后再使用
 
 #### 常量定义
 
-```C
+```c
 #define LOWER 0
 #define UPPER 300
 #define STEP 20

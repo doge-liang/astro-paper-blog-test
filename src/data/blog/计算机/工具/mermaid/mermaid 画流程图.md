@@ -25,7 +25,7 @@ graph TD
     C -->|Three| F[fa:fa-car Car]
 ```
 
-```code
+```plaintext
 graph TD
     A[Christmas] -->|Get money| B(Go shopping)
     B --> C{Let me think}
@@ -77,7 +77,7 @@ flowchart TB
     two --> c2
 ```
 
-```code
+```plaintext
 flowchart TB
     c1-->a2
     subgraph one
@@ -102,7 +102,7 @@ graph LR
    A -- text --> B -- text2 --> C
 ```
 
-```code
+```plaintext
 graph LR
 %% this is a comment A -- text --> B{node}
    A -- text --> B -- text2 --> C
@@ -121,7 +121,7 @@ graph LR;
     click D href "http://www.github.com"
 ```
 
-```code
+```plaintext
 graph LR;
     A-->B;
     B-->C;
@@ -143,7 +143,7 @@ graph LR
     linkStyle 3 stroke:#ff3,stroke-width:4px;
 ```
 
-```code
+```plaintext
 graph LR
     A --> B;
     B --> C;
@@ -163,7 +163,7 @@ graph LR
     style id2 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
 ```
 
-```code
+```plaintext
 graph LR
     id1(Start)-->id2(Stop)
     style id1 fill:#f9f,stroke:#333,stroke-width:4px
@@ -180,7 +180,7 @@ graph LR
     classDef someclass fill:#f96;
 ```
 
-```code
+```plaintext
 graph LR
     A:::someclass --> B
     classDef someclass fill:#f96;

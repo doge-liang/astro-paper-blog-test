@@ -3,10 +3,10 @@ title: Linux踩坑合集
 description: 关于Linux踩坑合集的详细笔记和总结
 tags: []
 categories:
-    - article
-    - 计算机
-    - 操作系统
-    - linux
+  - article
+  - 计算机
+  - 操作系统
+  - linux
 pubDatetime: 2019-10-01 00:00:00
 ---
 
@@ -24,7 +24,7 @@ pubDatetime: 2019-10-01 00:00:00
 
 ## Linux 忘记 mysql root 密码，修改权限以及密码(mysql version 8.0)
 
-```SQL
+```sql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_root_password BY 'password';
 ```
 
@@ -42,7 +42,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_root_password BY 'password';
 1. 进入数据库
 2. 输入
 
-```SQL
+```sql
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'password' PASSWORD EXPIRE NEVER; #修改加密规则
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; #更新一下用户的密码
 FLUSH PRIVILEGES; #刷新权限
@@ -53,14 +53,14 @@ FLUSH PRIVILEGES; #刷新权限
 这里使用的是 googlepinyin
 安装好相关的包之后，再设置-输入法-管理已安装语言中，安装中文，并修改输入法系统为：fcitx 随后重启。重启之后，右上角应该是有个白色的小按钮，点击之后配置输入法，注意有键盘(keyboard)字样的要放最上面，而且这个不代表输入法，是键盘布局的意思，是不会激活输入法的。
 
--   Ubuntu 系
+- Ubuntu 系
 
 ```shell
 su root
 apt-get install fcitx fcitx-googlepinyin fcitx-table-wbpy fcitx-pinyin fcitx-sunpinyin
 ```
 
--   Centos 系
+- Centos 系
 
 ```shell
 yum groupinstall chinese support //安装中文环境支持
@@ -145,18 +145,18 @@ E: Unable to lock the administration directory (/var/lib/dpkg/) is another proce
 
 1. 清除 lock file 和 cache 的 lock file
 
-    ```shell
-    sudo rm /var/lib/apt/lists/lock
-    sudo rm /var/cache/apt/archives/lock
-    sudo rm /var/lib/dpkg/lock
-    ```
+   ```shell
+   sudo rm /var/lib/apt/lists/lock
+   sudo rm /var/cache/apt/archives/lock
+   sudo rm /var/lib/dpkg/lock
+   ```
 
 2. 列出使用中的进程并杀死
 
-    ```shell
-    ps -A | grep apt
-    sudo kill -9 xxx
-    ```
+   ```shell
+   ps -A | grep apt
+   sudo kill -9 xxx
+   ```
 
 ## Ubuntu 换源
 
@@ -359,4 +359,3 @@ sudo apt install ntpdate
 sudo ntpdate ntp.ubuntu.com
 sudo ntpdate time.nist.gov
 ```
-

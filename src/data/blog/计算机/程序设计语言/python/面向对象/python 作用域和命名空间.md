@@ -3,19 +3,19 @@ title: python 作用域和命名空间
 description: 关于python 作用域和命名空间的详细笔记和总结
 tags: []
 categories:
-    - article
-    - 计算机
-    - 程序设计语言
-    - python
-    - 面向对象
+  - article
+  - 计算机
+  - 程序设计语言
+  - python
+  - 面向对象
 pubDatetime: 2021-04-08 00:00:00
 ---
 
 ## python 作用域和命名空间
 
--   [python 作用域和命名空间](#python-作用域和命名空间)
-    -   [命名空间](#命名空间)
-    -   [作用域](#作用域)
+- [python 作用域和命名空间](#python-作用域和命名空间)
+  - [命名空间](#命名空间)
+  - [作用域](#作用域)
 
 ### 命名空间
 
@@ -68,10 +68,9 @@ print("In global scope:", spam)
 
 输出：
 
-```code
+```plaintext
 After local assignment: test spam
 After nonlocal assignment: nonlocal spam
 After global assignment: nonlocal spam
 In global scope: global spam
 ```
-

@@ -14,7 +14,7 @@ pubDatetime: 2020-01-01 00:00:00
 
 ### 增删改查
 
-```SQL
+```sql
 //切换到某个数据库
 USE [DataBaseName];
 //设置字符集
@@ -45,7 +45,7 @@ INSERT INTO [TableName][ColumnNames, ...] VALUES [value, ...];
 
 ### 创建/删除/修改指令
 
-```SQL
+```sql
 CREATE DATABASE [DataBaseName];
 CREATE TABLE [TableName];
 //创建索引列

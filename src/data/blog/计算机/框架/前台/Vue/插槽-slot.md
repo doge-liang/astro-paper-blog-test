@@ -27,16 +27,16 @@ VUe 受 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh
 
 ### 示例：一个简单的插槽
 
-```HTML
+```html
 <!-- TodoButton.vue -->
 <template>
-<button class="btn-primary">
-  <slot></slot>
-</button>
+  <button class="btn-primary">
+    <slot></slot>
+  </button>
 </template>
 ```
 
-```HTML
+```html
 <!-- ParentComp.vue -->
 <template>
   <todo-button>
@@ -45,7 +45,7 @@ VUe 受 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh
 </template>
 ```
 
-```HTML
+```html
 <!-- rendered HTML -->
 <button class="btn-primary">
   <i class="fas-fa-plus"></i>
@@ -58,7 +58,7 @@ VUe 受 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh
 
 如下的访问方式则不成功：
 
-```HTML
+```html
 <todo-button action="delete">
   Clicking here will {{ action }} an item
   <!--
@@ -75,7 +75,7 @@ VUe 受 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh
 
 在 `<slot>` 标签内部写入内容，可以设定无外来插件的时候使用默认的内容。
 
-```HTML
+```html
 <button type="submit">
   <slot>Submit</slot>
 </button>
@@ -85,7 +85,7 @@ VUe 受 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh
 
 当我们要在一个组件内定义多个插槽的时候我们会需要这个特性。
 
-```HTML
+```html
 <!-- BaseLayout.Vue -->
 <div class="container">
   <header>
@@ -102,7 +102,7 @@ VUe 受 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh
 
 没有 `name` 属性的插槽有一个隐含的名字 `default` 。
 
-```HTML
+```html
 <!-- Vue 2.x 写法 -->
 <base-layout>
   <template v-slot:header>
@@ -124,7 +124,7 @@ VUe 受 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh
   <template #header>
     <h1>Here might be a page title</h1>
   </template>
-...
+  ...
 </base-layout>
 ```
 
@@ -132,24 +132,24 @@ VUe 受 [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh
 
 有时候我们希望 `<slot>` 标签可以使用子组件中的一些值，例如：
 
-```HTML
+```html
 <todo-list>
   <template v-slot:default="">
     <div>
-     <ul>
-      <li v-for="(item, index) in items">
-        {{ item }}
-      </li>
-    </ul>
+      <ul>
+        <li v-for="(item, index) in items">{{ item }}</li>
+      </ul>
     </div>
-  </template>
+  </template></todo-list
+>
 ```
 
 使用这个组件：
 
-```HTML
+```html
 <todo-list>
   <i class="fas fa-check"></i>
   <span class="green">{{item}}</span>
-<todo-list>
+  <todo-list></todo-list
+></todo-list>
 ```

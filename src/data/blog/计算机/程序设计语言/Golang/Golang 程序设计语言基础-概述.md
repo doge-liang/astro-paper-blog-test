@@ -64,7 +64,7 @@ VS Code + GO SDK 1.16.3
 
 项目路径：
 
-```code
+```plaintext
 learning-go # $GOPATH 的路径
 └─src # 源代码
     └─go_code # 项目
@@ -102,7 +102,6 @@ func main() {
 - `go build`：
   编译生成 .exe 文件（编译语言的方式，一次编译，多次运行）
   生成文件相对源代码大很多，自动添加环境变量；
-
   - `[-o]` 参数，后接生成文件名；
 
 - `go run`：

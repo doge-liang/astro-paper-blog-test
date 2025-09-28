@@ -2,12 +2,12 @@
 title: Java面向对象
 description: 关于Java面向对象的详细笔记和总结
 tags:
-    - Java
+  - Java
 categories:
-    - article
-    - 计算机
-    - 程序设计语言
-    - Java
+  - article
+  - 计算机
+  - 程序设计语言
+  - Java
 pubDatetime: 2021-03-07 00:00:00
 ---
 
@@ -33,7 +33,7 @@ pubDatetime: 2021-03-07 00:00:00
 
 借助于 **自动装箱(autoboxing)** 的特性，支持泛型类在被调用的时候自动进行类型转换成为调用者指定的类型。
 
-```Java
+```java
 //这是一个泛型类
 public class genericClass<T> {
     //这是一个泛型方法
@@ -120,8 +120,8 @@ double middle = Test.getThird(3.14, 1729, 0);
 
 通配符是为了限制泛型的使用范围而设计的。
 
--   `? extends Employee` 代表这个泛型是 Employee 的子类；
--   `? super Manager` 代表这个泛型是 Manager 的父类；
+- `? extends Employee` 代表这个泛型是 Employee 的子类；
+- `? super Manager` 代表这个泛型是 Manager 的父类；
 
 这里 `extends` 和 `super` 关键字后面的不一定要是一个类，也可以是一个接口。也可以指定多个类表示 `?` 是多个类及其子（父）类：`? extends Function & Serializable` 。
 
@@ -252,4 +252,3 @@ new Thread(new Runnable() {// 接口名
 #### 常量池机制
 
 Java 的 `Integer` 类在值的范围为 -128 ~ 127 时， `valueOf()` 方法会复用 `IntegerCache` 中的值。对于在这个范围内的 `Integer` 如果不使用 `new` 关键字新建一个 `Integer` 对象，那么返回的都是同一块地址的值，使用 `==` 判断都会返回 `true` 。
-

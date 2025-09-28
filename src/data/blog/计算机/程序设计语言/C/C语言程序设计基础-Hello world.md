@@ -43,7 +43,7 @@ C 语言是一门强类型面向过程编程的编程语言。
 
 第一个 C 程序：
 
-```C
+```c
 #include <stdio.h> //标准库引用
 
 main() //主函数定义 不接受参数值
@@ -74,7 +74,7 @@ C 程序的变量都必须声明后再使用
 
 #### 常量定义
 
-```C
+```c
 #define LOWER 0
 #define UPPER 300
 #define STEP 20

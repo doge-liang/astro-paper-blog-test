@@ -14,7 +14,7 @@ pubDatetime: 2021-04-10 00:00:00
 
 ### 自定义类型和类型别名
 
-```Go
+```go
 package main
 
 import "fmt"
@@ -40,7 +40,7 @@ func main() {
 
 输出：
 
-```code
+```plaintext
 100
 main.myInt
 200

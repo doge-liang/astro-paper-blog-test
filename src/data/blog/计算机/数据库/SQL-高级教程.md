@@ -57,12 +57,12 @@ pubDatetime: 2020-01-01 00:00:00
 为了简化列名和函数书写，我们通常会为列或表声明别名。  
 列别名：
 
-```SQL
+```sql
 SELECT [ColumnName] AS [AliasName] FROM [TableName];
 ```
 
 表别名：
 
-```SQL
+```sql
 SELECT [ColumnName] FROM [TableName] AS [AliasName];
 ```

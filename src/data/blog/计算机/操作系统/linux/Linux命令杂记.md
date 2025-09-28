@@ -3,10 +3,10 @@ title: Linux命令杂记
 description: 关于Linux命令杂记的详细笔记和总结
 tags: []
 categories:
-    - article
-    - 计算机
-    - 操作系统
-    - linux
+  - article
+  - 计算机
+  - 操作系统
+  - linux
 pubDatetime: 2019-10-01 00:00:00
 ---
 
@@ -19,13 +19,13 @@ uname -a #查看硬件架构
 
 ## 转换到 root 用户
 
-```code
+```plaintext
 su root
 ```
 
 ## 修改 root 用户密码
 
-```code
+```plaintext
 sudo passwd root
 ```
 
@@ -40,7 +40,7 @@ passwd [用户]
 
 ## 安装软件
 
-```code
+```plaintext
 sudo yum install [Option] // RedHat-based
 sudo apt-get install [Option] // Debian-based
 ```
@@ -54,7 +54,7 @@ sudo apt-get install [Option] // Debian-based
 
 ## 目录查阅命令
 
-```code
+```plaintext
 // 显示文件信息
 ls [OPTION]... [FILE]...
 // 按行显示
@@ -74,8 +74,8 @@ tree -help
 
 ## 软件安装/卸载
 
--   Debian 系列：
-    apt:
+- Debian 系列：
+  apt:
 
 ```shell
 apt-get install xxx xxx
@@ -86,8 +86,8 @@ apt update xxx xxx
 apt upgrade xxx xxx
 ```
 
--   RedHat 系列：
-    yum:
+- RedHat 系列：
+  yum:
 
 ```bash
 yum install [RPM package]
@@ -109,8 +109,8 @@ setsid [Option] [program]
 
 `chmod [mode] [path]` 修改目录的读/写/执行权限
 
--   mode：代表权限模式
--   path：表示作用目录
+- mode：代表权限模式
+- path：表示作用目录
 
 mode 有几种表示方式，一种是数字的表达方式
 
@@ -148,14 +148,14 @@ $ ll
 
 #### 权限字符串
 
--   执行： `001` 、 `x` (execute)
--   写： `010` 、 `w` (write)
--   读： `100` 、 `r` (read)
+- 执行： `001` 、 `x` (execute)
+- 写： `010` 、 `w` (write)
+- 读： `100` 、 `r` (read)
 
 #### 目录/链接个数
 
--   对于目录文件，就会显示该目录下有几个目录文件，比如上面的代码中 `./` 目录有 4 个目录文件，看输出中的文件的文件类型是有四个目录文件（ `./` 本身和 `../` 都算进去了）；
--   对于其他文件，就会显示链接到这个文件的链接的个数，一个文件至少会有自己链接到自己，所以至少是 1；
+- 对于目录文件，就会显示该目录下有几个目录文件，比如上面的代码中 `./` 目录有 4 个目录文件，看输出中的文件的文件类型是有四个目录文件（ `./` 本身和 `../` 都算进去了）；
+- 对于其他文件，就会显示链接到这个文件的链接的个数，一个文件至少会有自己链接到自己，所以至少是 1；
 
 注意和 `umask` 权限掩码的区别，权限掩码的各个位表示的意思和 `mode` 一样。但是 `umask` 中设置为 1 的位是表示剥夺该项权限的。因为赋予什么权限是由 `mode` 和 `umask` 之间 `AND` 的结果定。
 
@@ -171,9 +171,9 @@ $ ll
 
 目录栈是 Linux 维护目录的一个高级工具，顾名思义是一个存放目录的栈，栈顶代表现在正在使用的工作目录，使用
 
--   `pushd`
--   `popd`
--   `dirs`
+- `pushd`
+- `popd`
+- `dirs`
 
 等等命令来操作目录栈。
 
@@ -185,7 +185,7 @@ $ ll
 
 使用例子：
 
-```code
+```plaintext
 #这个符号~代表根home目录
 root@localhost:ubuntu# pushd /root
 ~ /home/ubuntu
@@ -220,7 +220,7 @@ root@localhost:local#
 `+n` 删除 pushd 添加的目录，以当前目录为准，从左向右数，删除第 n 个；
 `-n` 删除 pushd 添加的目录，以当前目录为准，从右向左数，删除第 n 个；
 
-```code
+```plaintext
 #添加目录
 root@localhost:dev# pushd /usr/
 /usr /dev /home/ubuntu
@@ -245,7 +245,7 @@ root@localhost:home# popd -1
 `-n` 以当前目录为准，显示从右边算起第 n 笔的目录；
 `-l` 显示目录完整的记录；
 
-```code
+```plaintext
 #显示目录栈
 root@localhost:ubuntu# dirs
 /home/ubuntu /usr
@@ -331,7 +331,7 @@ echo `expr index "$string" io`  # 输出 4
 
 变量也可以指向语句：
 
-```Bash
+```bash
 file=`ls /etc`
 ```
 
@@ -440,4 +440,3 @@ do
     command
 done
 ```
-

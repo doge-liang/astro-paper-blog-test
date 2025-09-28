@@ -16,7 +16,7 @@ pubDatetime: 2021-04-07 00:00:00
 
 使用 `docker logs <container_name>` 命令，列出了这个容器的日志
 
-```code
+```plaintext
 2021-04-07 03:49:03.657 UTC [main] InitCmd -> ERRO 001 Cannot run peer because error when setting up MSP of type bccsp from directory /etc/hyperledger/fabric/msp: administrators must be declared when no admin ou classification is set
 ```
 

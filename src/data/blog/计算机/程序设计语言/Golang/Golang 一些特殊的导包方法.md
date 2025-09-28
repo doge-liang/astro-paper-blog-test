@@ -12,7 +12,7 @@ pubDatetime: 2021-04-11 00:00:00
 
 ## Golang 一些特殊的导包方法
 
-```Go
+```go
 package main
 
 import (
@@ -32,7 +32,7 @@ func main() {
 
 另外还能用相对路径和绝对路径来导包。
 
-```Go
+```go
 import   "./model"  //当前文件同一目录的model目录，但是不建议这种方式import
 import   "shorturl/model"  //加载GOPATH/src/shorturl/model模块
 ```

@@ -14,7 +14,7 @@ pubDatetime: 2021-07-06 00:00:00
 
 ### 标题
 
-```code
+```plaintext
 # 一级标题
 
 ## 二级标题
@@ -31,7 +31,7 @@ pubDatetime: 2021-07-06 00:00:00
 
 ### 特殊字体
 
-```code
+```plaintext
 
 **加粗**
 
@@ -44,7 +44,7 @@ pubDatetime: 2021-07-06 00:00:00
 
 ### 引用块
 
-```code
+```plaintext
 >一级引用
 >>二级引用
 >>>三级引用
@@ -52,7 +52,7 @@ pubDatetime: 2021-07-06 00:00:00
 
 ### 分割线
 
-```code
+```plaintext
 ***分割线
 
 ---分割线
@@ -60,14 +60,14 @@ pubDatetime: 2021-07-06 00:00:00
 
 ### 图片和超链接
 
-```code
+```plaintext
 ![图片alt](../../../../../assets/images/图片地址)
 [超链接名](超链接地址)
 ```
 
 ### 列表
 
-```code
+```plaintext
 * 一级无序列表
     * 二级无序列表
         * 三级无序列表
@@ -79,7 +79,7 @@ pubDatetime: 2021-07-06 00:00:00
 
 ### 表格
 
-```code
+```plaintext
 | 表头 | 表头 | 表头 |
 | ---- | ---- | ---- |
 | 内容 | 内容 | 内容 |
@@ -95,7 +95,7 @@ pubDatetime: 2021-07-06 00:00:00
 
 ### 代码块
 
-```code
+```plaintext
 `inline code`
 
 block code
