@@ -1,9 +1,9 @@
 export const SITE = {
-  website: "https://blog.doge-liang-space.uk", // replace this with your deployed domain
+  website: "https://doge-liang-space.fun", // replace this with your deployed domain
   author: "doge-liang",
-  profile: "https://doge-liang-space.uk",
-  desc: "Personal blog built with Astro Paper.",
-  title: "doge-liang-space",
+  profile: "https://doge-liang-space.fun",
+  desc: "Doge Liang Space, which is a blog site about programming and technology.",
+  title: "Doge Liang Space",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
