@@ -86,4 +86,5 @@ astro check && astro build && pagefind --site dist && cp -r dist/pagefind public
 1. 明确部署目标：GitHub Pages、Cloudflare Pages 或其他静态托管。
 2. 检查 `public/pagefind` 是否应提交，或改为部署时生成。
 3. 清理重复图片和无用模板文章，降低仓库体积。
-4. 给 `Knowledge` 到博客的内容迁移建立固定 checklist。
+4. 大型可下载工具包不要提交到仓库，例如 Fabric 实践文章里的 `fabric-bin/`。
+5. 给 `Knowledge` 到博客的内容迁移建立固定 checklist。

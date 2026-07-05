@@ -26,3 +26,7 @@ pnpm-debug.log*
 # pagefind
 
 public/pagefind
+
+# downloaded Fabric release packages
+fabric-bin/
+**/fabric-bin/
