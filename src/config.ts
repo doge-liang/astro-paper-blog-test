@@ -1,7 +1,7 @@
 export const SITE = {
   website: "https://doge-liang.github.io", // replace this with your deployed domain
   author: "doge-liang",
-  profile: "https://doge-liang-note.fun",
+  profile: "https://github.com/doge-liang",
   desc: "Doge Liang Note, which is a blog site about programming and technology.",
   title: "Doge Liang Note",
   ogImage: "astropaper-og.jpg",
@@ -14,7 +14,7 @@ export const SITE = {
   editPost: {
     enabled: true,
     text: "Edit page",
-    url: "https://github.com/doge-liang/astro-paper-blog-test/edit/main/",
+    url: "https://github.com/doge-liang/doge-liang.github.io/edit/main/",
   },
   dynamicOgImage: true,
   dir: "ltr", // "rtl" | "auto"
