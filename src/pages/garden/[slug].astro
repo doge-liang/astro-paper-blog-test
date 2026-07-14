@@ -19,7 +19,7 @@ const fmt = (d: Date) => d.toISOString().slice(0, 10);
 
 <Layout title={`${title} | ${SITE.title}`} description={description}>
   <Header />
-  <main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12">
+  <main id="main-content" data-pagefind-body class="mx-auto w-full max-w-app px-4 pb-12">
     <h1 class="inline-block text-2xl font-bold text-accent sm:text-3xl">{title}</h1>
     <p class="my-2 flex items-center gap-2 text-sm italic opacity-80">
       种于 {fmt(pubDatetime)}
