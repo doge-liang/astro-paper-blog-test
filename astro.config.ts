@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { defineConfig, envField } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
@@ -6,6 +7,7 @@ import remarkToc from "remark-toc";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import remarkCollapse from "remark-collapse";
+import remarkWikilinks from "./plugins/remark-wikilinks.mjs";
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
@@ -13,6 +15,10 @@ import {
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import { SITE } from "./src/config";
+
+const gardenManifest = JSON.parse(
+  readFileSync(new URL("./src/data/garden/_manifest.json", import.meta.url), "utf8")
+);
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,6 +31,7 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [
+      [remarkWikilinks, { manifest: gardenManifest }],
       remarkMath,
       remarkToc,
       [remarkCollapse, { test: "Table of contents" }]
