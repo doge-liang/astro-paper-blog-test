@@ -67,3 +67,10 @@ html[data-theme="dark"] {
 :target {
   scroll-margin-block: 1rem;
 }
+
+/* 未发布 wikilink 的降级样式（博客管线 spec §4.2） */
+.unpublished-link {
+  border-bottom: 1px dashed currentColor;
+  opacity: 0.7;
+  cursor: help;
+}

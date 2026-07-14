@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Main from "@/layouts/Main.astro";
+import { SITE } from "@/config";
+
+const notes = (await getCollection("garden")).sort(
+  (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
+);
+const fmt = (d: Date) => d.toISOString().slice(0, 10);
+---
+
+<Layout title={`Garden | ${SITE.title}`}>
+  <Header />
+  <Main pageTitle="Garden" pageDesc="数字花园——从 Knowledge 同步的生长中笔记。">
+    <ul>
+      {
+        notes.map(({ id, data }) => (
+          <li class="my-6">
+            <a
+              href={`/garden/${id}/`}
+              class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 hover:underline"
+            >
+              {data.title}
+            </a>
+            <p class="text-sm italic opacity-80">{fmt(data.pubDatetime)}</p>
+            <p>{data.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+    {notes.length === 0 && <p class="my-8 opacity-80">花园尚未播种。</p>}
+  </Main>
+  <Footer />
+</Layout>
