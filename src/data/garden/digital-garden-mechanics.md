@@ -12,3 +12,7 @@ tags: ["systems"]
 行内公式 $E = mc^2$ 与块级公式：
 
 $$\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}$$
+
+## 更新回合补记
+
+这一段由冒烟测试的更新回合追加，用于验证镜像同步的 update 路径与「最后修整」日期的出现。
